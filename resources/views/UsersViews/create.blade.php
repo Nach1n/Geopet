@@ -92,6 +92,7 @@
                 <div class="input-group">
                     <span class="input-group-addon"><li class="fa fa-key" style="width:14px"></li></span>
                     <select name="rol" class="form-control" required>
+                        <option value="">Seleccionar una opción</option>
                     @foreach($roles as $role)
                         <option value="{{ $role->id }}">{{ $role->display_name }}</option>
                     @endforeach

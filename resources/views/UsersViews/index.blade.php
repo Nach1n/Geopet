@@ -33,6 +33,12 @@
     </div>
 @endif
 
+@if(session()->has('delete'))
+    <div class="alert callout callout-danger alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        {{ session('delete') }}
+    </div>
+@endif
 
 <div class="box">
 

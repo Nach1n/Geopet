@@ -65,4 +65,4 @@
     <!-- ./col -->
 </div>
     <!-- /.row -->
-@stop
+@endsection
