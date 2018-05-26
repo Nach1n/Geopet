@@ -113,7 +113,7 @@ class UsersController extends Controller
     {
         $user = User::findOrFail($id);
         $oldAvatar = $user->avatar;
-        //dd($oldAvatar);
+
         $this->authorize($user);
 
         if($request->hasFile('avatar'))
@@ -146,10 +146,17 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
+
         $user = User::findOrFail($id);
         $this->authorize($user);
+
+        if(strncmp('avatar.jpg', $user->avatar, 10) !== 0)
+        {
+            Storage::delete($user->avatar);
+        }
+
         $user->delete();
 
-        return back();
+        return back()->with('delete', 'El usuario fue eliminado');
     }
 }
