@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Message;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -31,13 +32,21 @@ class HomeController extends Controller
                 $query->where('name','client');
             })->count();
 
+            $generalMessages = Message::whereHas('sender', function($query){
+                $query->whereHas('role',function($sql){
+                    $sql->where('name', 'admin');
+                });
+            })->orderBy('id', 'desc')->take(10)->get();
+
             $lastUsers = User::select('id','name', 'avatar')->whereHas('role', function($query){
                 $query->where('name', 'client');
             })->orderBy('id','desc')->take(10)->get();
 
-            return view('adminHome', compact('users','lastUsers'));
+            return view('adminHome', compact('users','lastUsers', 'generalMessages'));
         }else{
-            return view('clientHome');
+            
+            $notifications = auth()->user()->notifications;
+            return view('clientHome', compact('notifications'));
         }
     }
 }

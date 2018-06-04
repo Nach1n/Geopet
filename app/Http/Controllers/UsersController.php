@@ -27,7 +27,7 @@ class UsersController extends Controller
     {
         $users = User::select('id','name','lastname','phone_number','email')->whereHas('role', function ($query){
             $query->where('display_name', 'Cliente');
-        })->get();
+        })->orderBy('id','desc')->get();
 
         return view('UsersViews.index', compact('users'));
     }

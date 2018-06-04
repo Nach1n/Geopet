@@ -61,7 +61,7 @@ desired effect
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>Geo</b></span>
+      <span class="logo-mini"><b>BL</b></span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>{{ config('app.name') }}</b></span>
     </a>
@@ -116,22 +116,26 @@ desired effect
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
+              @if($count = Auth::user()->unreadNotifications->count())
+              <span class="label label-warning">{{ $count }}</span>
+              @endif
             </a>
             <ul class="dropdown-menu">
-              <li class="header">Tienes 10 notificaciones</li>
+              <li class="header">Tienes {{ $count }} notificaciones</li>
               <li>
                 <!-- Inner Menu: contains the notifications -->
                 <ul class="menu">
+                  @foreach(Auth::user()->unreadNotifications->take(3) as $notification)
                   <li><!-- start notification -->
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> Notificación...
+                    <a href="{{ route( 'notifications.show', ['message_id'=>$notification->data['id'], 'notification_id'=>$notification->id]) }}">
+                      <i class="fa fa-users text-aqua"></i> {{ $notification->data['subject'] }}
                     </a>
                   </li>
+                  @endforeach
                   <!-- end notification -->
                 </ul>
               </li>
-              <li class="footer"><a href="#">Ver todas</a></li>
+              <li class="footer"><a href="{{ route('notifications.index') }}">Ver todas</a></li>
             </ul>
           </li>
           <!-- Tasks Menu -->
@@ -182,8 +186,8 @@ desired effect
             </a>
             <ul class="dropdown-menu">
 
-            <li><a href="{{ route('account', auth()->user()->id) }}" class="btn btn-defaul btn-block btn-flat">Mi cuenta</a></li>
-            <li role="separator" class="divider"></li>
+            <li><a href="{{ route('account', auth()->user()->id) }}" class="btn btn-defaul btn-block btn-flat" style="color:black;">Mi cuenta</a></li>
+            
             <form action="{{ route('logout') }}" method="POST">
               @csrf
               <li><button type="submit" class="btn btn-default btn-block btn-flat">Cerrar sesión</button></li>
@@ -239,8 +243,8 @@ desired effect
         <!-- <small>Optional description</small> -->
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li class="active">@yield('title')</li>
       </ol>
     </section>
 
@@ -258,7 +262,7 @@ desired effect
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Versión 0.2
+      Versión 0.3
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2018 <a href="#">{{ config('app.name') }}</a>.</strong> Todos los derechos reservados.
@@ -347,15 +351,13 @@ desired effect
 
 <!-- jQuery 3 -->
 <script src="{{ asset('bower_components/jquery/dist/jquery.min.js') }}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{ asset('bower_components/jquery-ui/jquery-ui.min.js') }}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('bower_components/admin-lte/dist/js/adminlte.min.js') }}"></script>
 @yield('js')
 <script src="{{ asset('js/general.js') }}"></script>
-
-<!-- Optionally, you can add Slimscroll and FastClick plugins.
-     Both of these plugins are recommended to enhance the
-     user experience. -->
 </body>
 </html>

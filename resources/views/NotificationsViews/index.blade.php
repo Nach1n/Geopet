@@ -17,32 +17,64 @@
 @endsection
 
 @section('content')
-<div class="box">
-    <div class="box-body">
-        <table id="notifications-table" class="table table-bordered table-striped">
-        <thead>
-        <tr>
-            <th>Rendering engine</th>
-            <th>Browser</th>
-            <th>Platform(s)</th>
-            <th>Engine version</th>
-            <th>CSS grade</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>Trident</td>
-            <td>Internet
-            Explorer 4.0
-            </td>
-            <td>Win 95+</td>
-            <td> 4</td>
-            <td>X</td>
-        </tr>
-        </tbody>
 
-        </tfoot>
-        </table>
-    </div>
+@if(session()->has('info'))
+<div class="alert callout callout-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    {{ session('info') }}
 </div>
+@endif
+
+@if(session()->has('delete'))
+<div class="alert callout callout-success alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    {{ session('delete') }}
+</div>
+@endif
+
+<div class="row">
+    @include('layouts.notifications')
+    <!-- /.col -->
+    <div class="col-md-9">
+        <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Inbox</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body no-padding">
+            <div class="mailbox-controls">
+            <!-- /.btn-group -->
+            <a role="button" href="{{ route('notifications.index') }}" class="btn btn-default btn-sm"><i class="fa fa-refresh"></i></a>
+            <div class="pull-right">
+                Total: {{auth()->user()->notifications()->paginate(10)->total()}}
+            </div>
+            <!-- /.pull-right -->
+            </div>
+            <div class="table-responsive mailbox-messages">
+            <table class="table table-hover table-striped">
+                <tbody>
+                @foreach(auth()->user()->notifications()->paginate(10) as $notification)
+                <tr>
+                <td class="text-center">@if($notification->unread())<i class="fa fa-fw fa-envelope"></i>@endif</td>
+                <td class="mailbox-name">{{ $notification->data['from'] }}</td>
+                <td class="mailbox-subject"><a href="{{ route( 'notifications.show', ['message_id'=>$notification->data['id'], 'notification_id'=>$notification->id]) }}">{{ $notification->data['subject'] }}</a></td>
+                <td class="mailbox-attachment"></td>
+                <td class="mailbox-date">{{ $notification->created_at }}</td>
+                </tr>
+                @endforeach
+                </tbody>
+            </table>
+            
+            <!-- /.table -->
+            </div>
+            <!-- /.mail-box-messages -->
+            {{auth()->user()->notifications()->paginate(10)->links()}}
+        </div>
+        <!-- /.box-body -->
+        </div>
+        <!-- /. box -->
+    </div>
+    <!-- /.col -->
+</div>
+
 @endsection

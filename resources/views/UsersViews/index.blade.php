@@ -11,14 +11,8 @@
 <script src="{{ asset('js/dataTables.js') }}"></script>
 <script>
   $(function () {
-    $('#users-table').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
+    $('#users-table').DataTable({
+        "order":[]
     })
   })
 </script>
@@ -45,7 +39,8 @@
     <div class="box-body">
         <a href="{{ route('users.create') }}" class="btn btn-primary pull-right"><li class="fa fa-plus"></li> Agregar</a>
         <br>
-        <br>        
+        <br>
+        <div class="table-responsive">
         <table id="users-table" class="table table-bordered table-striped">
         <thead>
         <tr>
@@ -78,6 +73,7 @@
 
         </tfoot>
         </table>
+        </div>
     </div>
 </div>
 @endsection

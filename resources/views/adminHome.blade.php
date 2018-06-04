@@ -1,6 +1,35 @@
 @extends('layouts.base')
 @section('title', 'Dashboard')
+
+@section('js')
+<script src="{{ asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+<script>
+    $('#chat-box').slimScroll({
+    height: '250px'
+  });
+</script>
+
+<script>
+$(document).ready(function(){
+    $(window).keydown(function(event){
+        if(event.keyCode == 13) {
+            document.getElementById("general-modal").click();
+            event.preventDefault();
+            return false;
+        }
+    });
+});
+</script>
+@endsection
+
 @section('content')
+
+@if(session()->has('flash'))
+    <div class="alert callout callout-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <p>{{ session('flash') }}</p>
+    </div>
+@endif
 <!-- Small boxes (Stat box) -->
 <div class="row">
     <div class="col-lg-3 col-xs-6">
@@ -67,96 +96,71 @@
     <!-- /.row -->
 <div class="row">
     <div class="col-md-7">
+        <!-- Chat box -->
         <div class="box box-success">
-            <div class="box-header ui-sortable-handle" style="cursor: move;">
-                <i class="fa fa-comments-o"></i>
-
-                <h3 class="box-title">Chat</h3>
-
-                <div class="box-tools pull-right" data-toggle="tooltip" title="" data-original-title="Status">
-                <div class="btn-group" data-toggle="btn-toggle">
-                    <button type="button" class="btn btn-default btn-sm active"><i class="fa fa-square text-green"></i>
-                    </button>
-                    <button type="button" class="btn btn-default btn-sm"><i class="fa fa-square text-red"></i></button>
-                </div>
-                </div>
+            <div class="box-header">
+              <i class="fa fa-comments-o"></i>
+              <h3 class="box-title">Mensaje general</h3>
             </div>
-            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 250px;"><div class="box-body chat" id="chat-box" style="overflow: hidden; width: auto; height: 250px;">
-                <!-- chat item -->
-                <div class="item">
-                <img src="{{ asset('bower_components/admin-lte/dist/img/user4-128x128.jpg') }}" alt="user image" class="online">
+            <div class="box-body chat" id="chat-box">
+              @foreach( $generalMessages as $generalMessage)
+              <div class="item">
+                <img src="{{ Storage::url($generalMessage->sender->avatar) }}" alt="user image" class="offline">
 
                 <p class="message">
-                    <a href="#" class="name">
-                    <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 2:15</small>
-                    Mike Doe
-                    </a>
-                    I would like to meet you to discuss the latest news about
-                    the arrival of the new theme. They say it is going to be one the
-                    best themes on the market
+                  <a href="#" class="name">
+                    <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> {{ $generalMessage->created_at }}</small>
+                    {{ $generalMessage->sender->name . ' ' . $generalMessage->sender->lastname }}
+                  </a>
+                  {{ $generalMessage->body }}
                 </p>
-                <div class="attachment">
-                    <h4>Attachments:</h4>
-
-                    <p class="filename">
-                    Theme-thumbnail-image.jpg
-                    </p>
-
-                    <div class="pull-right">
-                    <button type="button" class="btn btn-primary btn-sm btn-flat">Open</button>
-                    </div>
-                </div>
-                <!-- /.attachment -->
-                </div>
-                <!-- /.item -->
-                <!-- chat item -->
-                <div class="item">
-                <img src="{{ asset('bower_components/admin-lte/dist/img/user3-128x128.jpg') }}" alt="user image" class="offline">
-
-                <p class="message">
-                    <a href="#" class="name">
-                    <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:15</small>
-                    Alexander Pierce
-                    </a>
-                    I would like to meet you to discuss the latest news about
-                    the arrival of the new theme. They say it is going to be one the
-                    best themes on the market
-                </p>
-                </div>
-                <!-- /.item -->
-                <!-- chat item -->
-                <div class="item">
-                <img src="{{ asset('bower_components/admin-lte/dist/img/user2-160x160.jpg') }}" alt="user image" class="offline">
-
-                <p class="message">
-                    <a href="#" class="name">
-                    <small class="text-muted pull-right"><i class="fa fa-clock-o"></i> 5:30</small>
-                    Susan Doe
-                    </a>
-                    I would like to meet you to discuss the latest news about
-                    the arrival of the new theme. They say it is going to be one the
-                    best themes on the market
-                </p>
-                </div>
-                <!-- /.item -->
-            </div><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 184.911px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+              </div>
+              @endforeach
+            </div>
             <!-- /.chat -->
             <div class="box-footer">
+            <form method="post" action="{{ route('messages.store') }}">
+                <div class="form-group">
+                    <input class="form-control" id="general-message-subject" name="subject" placeholder="Asunto" required>
+                </div>
                 <div class="input-group">
-                <input class="form-control" placeholder="Type message...">
+                    {!! csrf_field() !!}
+                    <input class="form-control" id="general-message" name="body" placeholder="Escribe un mensaje para todos los clientes..." required>
 
-                <div class="input-group-btn">
-                    <button type="button" class="btn btn-success"><i class="fa fa-plus"></i></button>
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-success" id="general-modal" data-toggle="modal" data-target="#confirm-submit"><i class="fa fa-plus"></i></button>
+                    </div>
+                    </div>
+
+                    <div class="modal fade" id="confirm-submit">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">¿Estás absolutamente seguro?</h4>
+                            </div>
+                            <div class="modal-body">
+                            <p>Este mensaje se enviará a todos sus clientes. Si está seguro de realizar esta acción, haga clic en el botón Enviar.</p>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                </div>
+            </form>
             </div>
-        </div>
+          </div>
+          <!-- /.box (chat box) -->
     </div>
 
     <div class="col-md-5">
         <!-- USERS LIST -->
         <div class="box box-danger">
         <div class="box-header with-border">
+            <i class="fa fa-users"></i>
             <h3 class="box-title">Últimos clientes</h3>
 
             <div class="box-tools pull-right">
