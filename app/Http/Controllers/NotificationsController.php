@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Message;
 use Illuminate\Http\Request;
+use Illuminate\Notifications\DatabaseNotification;
 
 class NotificationsController extends Controller
 {
@@ -14,77 +16,52 @@ class NotificationsController extends Controller
 
     public function __construct()
     {
-        #$this->middleware('auth');
+        $this->middleware('auth');
     }
     
     public function index()
-    {
-        return view('NotificationsViews.index');
+    {   
+        return view('NotificationsViews.index', [
+            'unreadNotifications' => auth()->user()->unreadNotifications,
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function show($message_id, $notification_id)
     {
-        //
+        $notification = DatabaseNotification::findOrFail($notification_id);
+
+        if(auth()->id() === $notification->notifiable_id)
+        {
+            $message = Message::findOrFail($message_id);
+            $notification->markAsRead();
+            return view('NotificationsViews.show', compact('message', 'notification'));
+        }else{
+            return abort(403);
+        }
+    }
+    
+    public function read($id)
+    {
+        $notification = DatabaseNotification::findOrFail($id);
+
+        if(auth()->id() === $notification->notifiable_id)
+        {
+            $notification->markAsRead();
+            return back()->with('info', 'Notificación marcada como leída');        
+        }else{
+            return abort(403);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $notification = DatabaseNotification::findOrFail($id);
+        if(auth()->id() === $notification->notifiable_id)
+        {
+            $notification->delete();
+            return redirect('notifications')->with('delete', 'Notificación eliminada');        
+        }else{
+            return abort(403);
+        }
     }
 }

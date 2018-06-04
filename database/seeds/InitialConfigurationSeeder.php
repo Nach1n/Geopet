@@ -34,5 +34,14 @@ class InitialConfigurationSeeder extends Seeder
             'password' => bcrypt('unab.toor'),
             'role_id' => 1
         ]);
+
+        User::create([
+            'name' => 'John',
+            'lastname' => 'Doe',
+            'email' => 'john@unab.cl',
+            'phone_number' => '56945896532',
+            'password' => bcrypt('unab.toor'),
+            'role_id' => 2
+        ]);
     }
 }
