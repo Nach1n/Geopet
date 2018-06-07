@@ -20,6 +20,7 @@ Utiliza el template [AdminLTE](https://github.com/almasaeed2010/AdminLTE)
 - Datos de ejemplo que estaban en web.php (archivo de rutas).
 
 ## 0.3 - 03-06-2018
+
 **Agregado**
 - Notificaciones masivas del admin hacia los clientes.
 
@@ -29,6 +30,7 @@ Utiliza el template [AdminLTE](https://github.com/almasaeed2010/AdminLTE)
 - DataTables responsive.
 
 ## 0.4 - 06-06-2018
+
 **Agregado**
 - Vistas y controladores (FrontController) para recibir a los visitantes **(incompleto)**.
 - Modelo (Option), Vista y controlador (AppOptionsController) para modificar datos de la aplicación como nombre, email, datos de contacto, entre otros.
@@ -36,3 +38,11 @@ Utiliza el template [AdminLTE](https://github.com/almasaeed2010/AdminLTE)
 **Modificado**
 - package.json que generaba conflictos al hacer una instalación desde cero.
 - InitialConfigurationSeeder, agrega datos de ejemplo de la app nombre, email, datos de contacto, entre otros.
+
+## 0.5 - 07-06-2018
+
+**Agregado**
+- Controlador FAQsController. Le permite al administrador agregar preguntas frecuentes.
+
+**Modificado**
+- InitialConfigurationSeeder, agrega una pregunta frecuente de ejemplo para el modelo Faq. 

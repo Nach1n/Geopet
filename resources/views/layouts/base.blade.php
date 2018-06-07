@@ -189,6 +189,7 @@ desired effect
         <li class="{{ request()->is('home') ? 'active':''}}"><a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> <span>Inicio</span></a></li>
         @if(auth()->user()->hasRoles(['admin',]))
         <li class="{{ request()->is('users*') ? 'active':''}}"><a href="{{ route('users.index') }}"><i class="fa fa-users"></i> <span>Clientes</span></a></li>
+        <li class="{{ request()->is('faqs*') ? 'active':''}}"><a href="{{ route('faqs.index') }}"><i class="fa fa-info-circle"></i> <span>Preguntas Frecuentes</span></a></li>
         <li class="{{ request()->is('options*') ? 'active':''}}"><a href="{{ route('options') }}"><i class="fa fa-cog"></i> <span>Ajustes</span></a></li>
         @endif
       </ul>
@@ -225,7 +226,7 @@ desired effect
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Versión 0.4
+      Versión 0.5
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2018 <a href="#">{{ config('app.name') }}</a>.</strong> Todos los derechos reservados.

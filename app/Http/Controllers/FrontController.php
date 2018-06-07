@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Option;
+use App\Faq;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -10,6 +11,7 @@ class FrontController extends Controller
     public function index()
     {
         $app_option = Option::find(1);
-        return view('FrontViews.index', compact('app_option'));
+        $FAQs = Faq::select('title','description')->where('published', 1)->take(6)->get();
+        return view('FrontViews.index', compact('app_option', 'FAQs'));
     }
 }
