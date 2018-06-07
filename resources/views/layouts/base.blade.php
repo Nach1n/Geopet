@@ -59,7 +59,7 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="{{ route('front') }}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>BL</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -138,43 +138,6 @@ desired effect
               <li class="footer"><a href="{{ route('notifications.index') }}">Ver todas</a></li>
             </ul>
           </li>
-          <!-- Tasks Menu -->
-          <li class="dropdown tasks-menu">
-            <!-- Menu Toggle Button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-flag-o"></i>
-              <span class="label label-danger">9</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="header">Tienes 9 tareas</li>
-              <li>
-                <!-- Inner menu: contains the tasks -->
-                <ul class="menu">
-                  <li><!-- Task item -->
-                    <a href="#">
-                      <!-- Task title and progress text -->
-                      <h3>
-                        Aumentar stock
-                        <small class="pull-right">20%</small>
-                      </h3>
-                      <!-- The progress bar -->
-                      <div class="progress xs">
-                        <!-- Change the css width attribute to simulate progress -->
-                        <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
-                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">20% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                </ul>
-              </li>
-              <li class="footer">
-                <a href="#">Ver todas las tareas</a>
-              </li>
-            </ul>
-          </li>
           <!-- User Account Menu -->
           <li class="dropdown user user-menu">
             <!-- Menu Toggle Button -->
@@ -226,8 +189,8 @@ desired effect
         <li class="{{ request()->is('home') ? 'active':''}}"><a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> <span>Inicio</span></a></li>
         @if(auth()->user()->hasRoles(['admin',]))
         <li class="{{ request()->is('users*') ? 'active':''}}"><a href="{{ route('users.index') }}"><i class="fa fa-users"></i> <span>Clientes</span></a></li>
+        <li class="{{ request()->is('options*') ? 'active':''}}"><a href="{{ route('options') }}"><i class="fa fa-cog"></i> <span>Ajustes</span></a></li>
         @endif
-        <li class="{{ request()->is('shops*') ? 'active':''}}"><a href="#"><i class="fa fa-cog"></i> <span>Ajustes</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -262,7 +225,7 @@ desired effect
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Versión 0.3
+      Versión 0.4
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2018 <a href="#">{{ config('app.name') }}</a>.</strong> Todos los derechos reservados.

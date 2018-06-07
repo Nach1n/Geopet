@@ -1,3 +1,25 @@
 .input-group-addon > .fa {
     width: 14px;
 }
+
+#front-logout-button{
+    text-decoration: none;
+    padding: 10px;
+    color: #F2A51F;
+    transition: 0.3s;
+    display: block;
+    font-size: 13px;
+    text-transform: none;
+}
+
+.nav-menu button {
+    padding: 0 8px 10px 8px;
+    text-decoration: none;
+    display: inline-block;
+    color: #F2A51F;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    outline: none;
+}

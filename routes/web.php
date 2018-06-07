@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('home', 'HomeController@index')->name('home');
+Route::get('/','FrontController@index')->name('front');
 Route::resource('/users','UsersController');
 Route::get('users/{user}/account', 'UsersController@account')->name('account');
 
@@ -30,3 +31,7 @@ Route::delete('notifications/{id}', 'NotificationsController@destroy')->name('no
 
 #Messages Controller
 Route::post('home', 'MessagesController@store')->name('messages.store');
+
+#Options Controller
+Route::get('options', 'AppOptionsController@index')->name('options');
+Route::put('options', 'AppOptionsController@update')->name('options.update');

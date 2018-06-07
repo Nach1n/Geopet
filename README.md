@@ -39,3 +39,11 @@ Utiliza el template [AdminLTE](https://github.com/almasaeed2010/AdminLTE)
 - Se corrige un dropdown-item que no se adaptaba a la vista mobile.
 - DataTables responsive.
 
+## 0.4 - 06-06-2018
+**Agregado**
+- Vistas y controladores (FrontController) para recibir a los visitantes **(incompleto)**.
+- Modelo (Option), Vista y controlador (AppOptionsController) para modificar datos de la aplicación como nombre, email, datos de contacto, entre otros.
+**Modificado**
+- package.json que generaba conflictos al hacer una instalación desde cero.
+- InitialConfigurationSeeder, agrega datos de ejemplo de la app nombre, email, datos de contacto, entre otros.
+

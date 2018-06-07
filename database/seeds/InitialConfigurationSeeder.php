@@ -2,6 +2,7 @@
 
 use App\User;
 use App\Role;
+use App\Option;
 use Illuminate\Database\Seeder;
 
 class InitialConfigurationSeeder extends Seeder
@@ -42,6 +43,17 @@ class InitialConfigurationSeeder extends Seeder
             'phone_number' => '56945896532',
             'password' => bcrypt('unab.toor'),
             'role_id' => 2
+        ]);
+
+        Option::create([
+            'app_name' => 'GeoPet',
+            'app_description' => 'La solución inteligente para buscar a tu mascota.',
+            'app_email' => 'contacto@geopet.ga',
+            'app_phone' => '600 600 300',
+            'app_address_street' => 'Antonio Varas',
+            'app_address_number' => '880',
+            'app_address_commune' => 'Providencia',
+            'app_address_country' => 'Chile',
         ]);
     }
 }
