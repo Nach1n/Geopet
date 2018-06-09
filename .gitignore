@@ -2,6 +2,7 @@
 /public/hot
 /public/bower_components
 /storage/*.key
+/public/storage
 /vendor
 /.idea
 /.vscode

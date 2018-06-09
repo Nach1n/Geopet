@@ -4,6 +4,7 @@ use App\User;
 use App\Role;
 use App\Option;
 use App\Faq;
+use App\Product;
 use Illuminate\Database\Seeder;
 
 class InitialConfigurationSeeder extends Seeder
@@ -19,6 +20,7 @@ class InitialConfigurationSeeder extends Seeder
         Role::truncate();
         Option::truncate();
         Faq::truncate();
+        Product::truncate();
 
         Role::create([
             'name' => 'admin',
@@ -64,5 +66,29 @@ class InitialConfigurationSeeder extends Seeder
             'description' => 'GeoPet es un servicio que permite localizar en tiempo real a tu mascota.',
             'published' => 1,
         ]);
+
+        Product::create([
+            'brand_name' => 'TKSTAR',
+            'model_name' => '909',
+            'network'=> 'GPRS/GPS',
+            'cpu' => 'SRIF 3',
+            'battery' => '3.7V 700-850mAh Li-ion battery',
+            'car_charger' => '12—24V input 5V output',
+            'wall_charger' => '110-220V input 5V output',
+            'certificate' => 'CE Certificate',
+            'item_size' => '47mmx50mmx15mm',
+            'weight' => 44,
+            'comunication_protocol' => 'TCP',
+            'band' => '850/900/1800/1900Mhz',
+            'gps_module'=> 'MTK',
+            'gps_chip' => 'SRIF 3',
+            'gps_accuracy'=> 5,
+            'operation_temp' => '-20°C to +55°C',
+            'standby' => 300,
+            'battery_life' => 30,
+            'price' => 49900,
+            'published' => 1
+        ]);
+
     }
 }

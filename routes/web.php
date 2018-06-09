@@ -19,8 +19,9 @@ Auth::routes();
 
 Route::get('home', 'HomeController@index')->name('home');
 Route::get('/','FrontController@index')->name('front');
-Route::resource('/users','UsersController');
+Route::resource('users','UsersController');
 Route::resource('faqs', 'FAQsController');
+Route::resource('products', 'ProductsController');
 Route::get('users/{user}/account', 'UsersController@account')->name('account');
 
 #Notifications Controller

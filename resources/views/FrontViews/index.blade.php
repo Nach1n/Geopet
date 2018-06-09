@@ -210,61 +210,24 @@
           <h3>Productos</h3>
         </header>
         <div class="row about-cols">
-
-          <div class="col-md-4 wow fadeInUp">
-            <div class="about-col">
-              <div class="img">
-                <img src="{{ asset('img/gpsnormal.png') }}" alt="" class="img-fluid">
-              </div>
-              <p>             </p>
-              <p>Compatibilidad GPS</p>
-              <p>Compatibilidad 2G/3G</p>
-              <p>Duración activo 30 hrs.</p>
-              <p>Duración en modo reposo 300 hrs.</p>
-              <p>Tamaño 70mmx37mmx20mm</p>
-              <p>Peso 65gr.</p>
-              <button type="button" class="btn btn-link">Ver más...</button>
-              <h2>Precio: $40.000 CLP</h2>
-              <div class="text-center"><button type="button" class="btn btn-success">Comprar</button></div>
-            </div>
-          </div>
-
+          @foreach($products as $product)
           <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
             <div class="about-col">
-              <div class="img">
-                <img src="{{ asset('img/gpsgato.png') }}" alt="" class="img-fluid">
+              <div class="img text-center">
+                <img src="{{ Storage::url($product->avatar) }}" style="height: 200px;" class="img-fluid">
               </div>
-              <p>             </p>
-              <p>Compatibilidad GPS</p>
-              <p>Compatibilidad 2G/3G</p>
-              <p>Duración activo 24 hrs.</p>
-              <p>Duración en modo reposo 300 hrs.</p>
-              <p>Tamaño 47mmx50mmx15mm</p>
-              <p>Peso 40gr.</p>
-              <button type="button" class="btn btn-link">Ver más...</button>
-              <h2>Precio: $40.000 CLP</h2>
-              <div class="text-center"><button type="button" class="btn btn-success">Comprar</button></div>
+              <h2 class="title"> {{$product->brand_name.' '.$product->model_name}} </h2>
+              <p>Compatibilidad {{$product->network}}</p>
+              <p>Duración activo {{$product->battery_life}} hrs.</p>
+              <p>Duración en modo reposo {{$product->standby}} hrs.</p>
+              <p>Tamaño: {{$product->item_size}}</p>
+              <p>Peso: {{$product->weight}}gr.</p>
+              <button type="button" class="btn btn-link" disabled>Ver más...</button>
+              <h2>Precio: ${{$product->price}} CLP</h2>
+              <div class="text-center"><button type="button" class="btn btn-success" disabled>Comprar</button></div>
             </div>
           </div>
-
-          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
-            <div class="about-col">
-              <div class="img">
-                <img src="{{ asset('img/gpspro.png') }}" alt="" class="img-fluid">
-              </div>
-              <p>             </p>
-              <p>Compatibilidad GPS</p>
-              <p>Compatibilidad 2G/3G</p>
-              <p>Duración activo 30 hrs.</p>
-              <p>Duración en modo reposo 300 hrs.</p>
-              <p>Tamaño 45mmx35mmx22mm</p>
-              <p>Peso 35gr.</p>
-              <button type="button" class="btn btn-link">Ver más...</button>
-              <h2>Precio: $50.000 CLP</h2>
-              <div class="text-center"><button type="button" class="btn btn-success">Comprar</button></div>
-            </div>
-          </div>
-
+          @endforeach
         </div>
 
       </div>

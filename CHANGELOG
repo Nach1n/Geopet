@@ -46,3 +46,15 @@ Utiliza el template [AdminLTE](https://github.com/almasaeed2010/AdminLTE)
 
 **Modificado**
 - InitialConfigurationSeeder, agrega una pregunta frecuente de ejemplo para el modelo Faq. 
+
+## 0.6 - 09-06-2018
+
+**Agregado**
+- Controlador ProductsController. Le permite al administrador agregar dispositivos gps.
+- Modelo Product.
+- ProductsViews .create .edit .index .show
+
+**Modificado**
+- InitialConfigurationSeeder, agrega un producto de ejemplo para el modelo Product.
+- UsersController.delete Se soluciona un problema al eliminar el usuario.
+- FrontViews para mostrar los productos a los clientes.

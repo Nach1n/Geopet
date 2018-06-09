@@ -130,7 +130,7 @@ class UsersController extends Controller
 
         $user->update();
 
-        if(strncmp('avatar.jpg', $oldAvatar,10) !== 0)
+        if($request->hasFile('avatar') && strncmp('avatar.jpg', $oldAvatar,10) !== 0)
         {
             Storage::delete($oldAvatar);
         }
