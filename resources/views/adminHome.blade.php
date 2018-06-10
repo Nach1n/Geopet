@@ -66,7 +66,7 @@ $(document).ready(function(){
         <!-- small box -->
         <div class="small-box bg-yellow">
         <div class="inner">
-            <h3>{{ $users }}</h3>
+            <h3>{{$numberUsers}}</h3>
 
             <p>Clientes</p>
         </div>
@@ -81,12 +81,12 @@ $(document).ready(function(){
         <!-- small box -->
         <div class="small-box bg-red">
         <div class="inner">
-            <h3>65</h3>
+            <h3>{{$numberPets}}</h3>
 
-            <p>Unique Visitors</p>
+            <p>Mascotas</p>
         </div>
         <div class="icon">
-            <i class="ion ion-pie-graph"></i>
+            <i class="fa fa-paw"></i>
         </div>
         <a href="#" class="small-box-footer">Ver más <i class="fa fa-arrow-circle-right"></i></a>
         </div>

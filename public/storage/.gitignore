@@ -1,5 +1,6 @@
-*
-!.gitignore
-!avatar.jpg
-!product.png
-!pet.jpg
+pets/*
+!pets/pet.jpg
+products/*
+!products/product.png
+avatar/*
+!avatar/avatar.jpg

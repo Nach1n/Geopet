@@ -113,19 +113,27 @@
     <!-- /.box-header -->
     <div class="box-body no-padding">
         <ul class="users-list clearfix">
+        @if($pets->count() != 0)
         @foreach($pets as $pet)
         <li>
             <img src="{{Storage::url($pet->avatar)}}" alt="Pet Avatar">
             <a class="users-list-name" href="{{ route('pets.show', $pet) }}">{{$pet->name}}</a>
         </li>
         @endforeach
+        @else
+        <p style="margin-top:10px;margin-bottom:10px;" class="text-center">
+            <a href="{{ route('pets.create') }}">Agrega tu primera mascota!</a>
+        </p>
+        @endif
         </ul>
         <!-- /.users-list -->
     </div>
     <!-- /.box-body -->
+    @if($pets->count() > 8)
     <div class="box-footer text-center">
         <a href="{{ route('pets.index') }}" class="uppercase">Ver todas</a>
     </div>
+    @endif
     <!-- /.box-footer -->
     </div>
     <!--/.box -->

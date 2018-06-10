@@ -26,7 +26,7 @@ class UpdateUserRequest extends FormRequest
         return [
             'avatar' => 'image|max:1024|mimes:jpeg,png',
             'email' => 'required|email|unique:users,email,'.$this->route('user'),
-            'phone-number' => 'required|integer|min:11',
+            'phone-number' => 'required|numeric|min:11',
             'password' => 'nullable|min:6|max:20|confirmed',
             'password_confirmation' => 'nullable|min:6|max:20',
         ];

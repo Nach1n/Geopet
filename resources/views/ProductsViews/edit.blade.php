@@ -1,5 +1,5 @@
 @extends('layouts.base')
-@section('title', 'Agregar producto')
+@section('title', 'Editar producto')
 @section('content')
 
 @if ($errors->any())
@@ -213,7 +213,7 @@
 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-delete">
     Eliminar
 </button>
-<button type="submit" class="btn btn-primary pull-right">Agregar</button>
+<button type="submit" class="btn btn-primary pull-right">Actualizar</button>
 </form>
 
 <div class="modal fade" id="modal-delete">

@@ -68,3 +68,7 @@ Utiliza el template [AdminLTE](https://github.com/almasaeed2010/AdminLTE)
 
 **Modificado**
 - HomeController Y clientHome, permite a los clientes ver a sus mascotas en el dashboard.
+
+## 0.7.1 - 10-06-2018
+
+- Correción de errores.

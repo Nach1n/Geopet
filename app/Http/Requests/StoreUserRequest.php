@@ -27,7 +27,7 @@ class StoreUserRequest extends FormRequest
             'name' => 'required',
             'lastname' => 'required',
             'email' => 'required|email|unique:users,email,'.$this->route('user'),
-            'phone-number' => 'required|integer|min:11',
+            'phone-number' => 'required|numeric|min:11',
             'rol' => 'required|digits:1,2',
             'password' => 'required|min:6|max:20|confirmed',
         ];

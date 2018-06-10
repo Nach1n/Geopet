@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Message;
+use App\Pet;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,7 +29,7 @@ class HomeController extends Controller
         
         if(auth()->user()->isAdmin())
         {
-            $users = User::whereHas('role', function($query){
+            $numberUsers = User::whereHas('role', function($query){
                 $query->where('name','client');
             })->count();
 
@@ -42,7 +43,9 @@ class HomeController extends Controller
                 $query->where('name', 'client');
             })->orderBy('id','desc')->take(10)->get();
 
-            return view('adminHome', compact('users','lastUsers', 'generalMessages'));
+            $numberPets = Pet::count();
+
+            return view('adminHome', compact('numberUsers','lastUsers', 'generalMessages', 'numberPets'));
         }else{
 
             $pets = auth()->user()->pet()->orderBy('id', 'desc')->take(8)->get();
