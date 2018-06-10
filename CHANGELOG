@@ -58,3 +58,13 @@ Utiliza el template [AdminLTE](https://github.com/almasaeed2010/AdminLTE)
 - InitialConfigurationSeeder, agrega un producto de ejemplo para el modelo Product.
 - UsersController.delete Se soluciona un problema al eliminar el usuario.
 - FrontViews para mostrar los productos a los clientes.
+
+## 0.7 - 10-06-2018
+
+**Agregado**
+- Controlador PetsController. Le permite a los clientes agregar a sus mascotas.
+- Modelo Pet.
+- PetsViews .create .edit .index .show
+
+**Modificado**
+- HomeController Y clientHome, permite a los clientes ver a sus mascotas en el dashboard.

@@ -133,7 +133,7 @@ class ProductsController extends Controller
         $product->published = $request->input('published');
         $product->update();
 
-        if($request->hasFile('avatar') && strncmp('product.jpg', $oldAvatar,10) !== 0)
+        if($request->hasFile('avatar') && strncmp('product.jpg', $oldAvatar,11) !== 0)
         {
             Storage::delete($oldAvatar);
         }

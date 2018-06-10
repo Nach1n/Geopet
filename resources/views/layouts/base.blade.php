@@ -75,9 +75,8 @@ desired effect
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-          <!-- Messages: style can be found in dropdown.less-->
+          <!-- Messages: style can be found in dropdown.less
           <li class="dropdown messages-menu">
-            <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>
               <span class="label label-success">4</span>
@@ -85,31 +84,24 @@ desired effect
             <ul class="dropdown-menu">
               <li class="header">Tienes 4 mensajes</li>
               <li>
-                <!-- inner menu: contains the messages -->
                 <ul class="menu">
-                  <li><!-- start message -->
+                  <li>
                     <a href="#">
                       <div class="pull-left">
-                        <!-- User Image -->
                         <img src="{{ asset('bower_components/admin-lte/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="Avatar">
                       </div>
-                      <!-- Message title and timestamp -->
                       <h4>
                         {{ auth()->user()->name }}
                         <small><i class="fa fa-clock-o"></i> 5 min</small>
                       </h4>
-                      <!-- The message -->
                       <p>Mensaje...</p>
                     </a>
                   </li>
-                  <!-- end message -->
                 </ul>
-                <!-- /.menu -->
               </li>
               <li class="footer"><a href="#">Ver todos los mensajes</a></li>
             </ul>
-          </li>
-          <!-- /.messages-menu -->
+          </li>-->
 
           <!-- Notifications Menu -->
           <li class="dropdown notifications-menu">
@@ -187,6 +179,9 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENÚ</li>
         <li class="{{ request()->is('home') ? 'active':''}}"><a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> <span>Inicio</span></a></li>
+        @if(auth()->user()->hasRoles(['client',]))
+        <li class="{{ request()->is('pets*') ? 'active':''}}"><a href="{{ route('pets.index') }}"><i class="fa fa-paw"></i> <span>Mascostas</span></a></li>
+        @endif
         @if(auth()->user()->hasRoles(['admin',]))
         <li class="{{ request()->is('users*') ? 'active':''}}"><a href="{{ route('users.index') }}"><i class="fa fa-users"></i> <span>Clientes</span></a></li>
         <li class="{{ request()->is('products*') ? 'active':''}}"><a href="{{ route('products.index') }}"><i class="fa fa-cubes"></i> <span>Productos</span></a></li>
@@ -227,7 +222,7 @@ desired effect
   <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-      Versión 0.6
+      Versión 0.7
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2018 <a href="#">{{ config('app.name') }}</a>.</strong> Todos los derechos reservados.
@@ -237,68 +232,22 @@ desired effect
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Create the tabs -->
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+      <li class="active"><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
-      <!-- Home tab content -->
-      <div class="tab-pane active" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">Actividad reciente</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:;">
-              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Venta</h4>
-
-                <p>$24.560.-</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-        <h3 class="control-sidebar-heading">Configuración general</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:;">
-              <h4 class="control-sidebar-subheading">
-                Rendimiento del servidor
-                <span class="pull-right-container">
-                    <span class="label label-danger pull-right">70%</span>
-                  </span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-      </div>
-      <!-- /.tab-pane -->
-      <!-- Stats tab content -->
-      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-      <!-- /.tab-pane -->
       <!-- Settings tab content -->
-      <div class="tab-pane" id="control-sidebar-settings-tab">
+      <div class="tab-pane active" id="control-sidebar-settings-tab">
         <form method="post">
           <h3 class="control-sidebar-heading">Ajustes</h3>
 
           <div class="form-group">
             <label class="control-sidebar-subheading">
-              Activar informes
+              Color:
               <input type="checkbox" class="pull-right" checked>
             </label>
-
-            <p>
-              Ejemplo
-            </p>
           </div>
+          <button class="btn btn-default btn-xs pull-right" type="button">Aplicar</button>
           <!-- /.form-group -->
         </form>
       </div>

@@ -33,6 +33,11 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
+    public function pet()
+    {
+        return $this->hasMany(Pet::class);
+    }
+
     public function hasRoles(array $roles)
     {
         foreach($roles as $role)

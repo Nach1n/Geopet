@@ -5,6 +5,7 @@ use App\Role;
 use App\Option;
 use App\Faq;
 use App\Product;
+use App\Pet;
 use Illuminate\Database\Seeder;
 
 class InitialConfigurationSeeder extends Seeder
@@ -21,6 +22,7 @@ class InitialConfigurationSeeder extends Seeder
         Option::truncate();
         Faq::truncate();
         Product::truncate();
+        Pet::truncate();
 
         Role::create([
             'name' => 'admin',
@@ -88,6 +90,18 @@ class InitialConfigurationSeeder extends Seeder
             'battery_life' => 30,
             'price' => 49900,
             'published' => 1
+        ]);
+
+        Pet::create([
+            'name' => 'Cholito',
+            'birth_day' => '2015-03-29',
+            'specie' => 'Perro',
+            'sex' => 1,
+            'race' => 'Poodle',
+            'color' => 'Blanco',
+            'reproductive_status' => 1,
+            'description' => 'Lorem ipsum...',
+            'user_id' => 2
         ]);
 
     }

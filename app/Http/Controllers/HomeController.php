@@ -44,9 +44,10 @@ class HomeController extends Controller
 
             return view('adminHome', compact('users','lastUsers', 'generalMessages'));
         }else{
-            
+
+            $pets = auth()->user()->pet()->orderBy('id', 'desc')->take(8)->get();
             $notifications = auth()->user()->notifications;
-            return view('clientHome', compact('notifications'));
+            return view('clientHome', compact('notifications', 'pets'));
         }
     }
 }
