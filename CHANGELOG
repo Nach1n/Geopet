@@ -71,4 +71,14 @@ Utiliza el template [AdminLTE](https://github.com/almasaeed2010/AdminLTE)
 
 ## 0.7.1 - 10-06-2018
 
-- Correción de errores.
+- Correción de errores menores.
+
+## 0.7.2 - 12-06-2018
+
+**Agregado**
+- Conexión segura (https), cuando APP_ENV = production.
+
+**Modificado**
+- Reducción de la calidad de las imagenes.
+- Correción de errores menores.
+- Migración pet **(incompleto)**.

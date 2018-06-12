@@ -39,7 +39,7 @@
                 <div class="form-group {{ $errors->has('name') ? 'has-error':''}}">
                     <label for="name" class="col-sm-3 control-label">Nombre</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" name="name" id="name" value="{{ $pet->name }}">
+                        <input type="text" class="form-control" name="name" id="name" value="{{ $pet->name }}" required>
                         {!! $errors->first('name','<span class="help-block">:message</span>') !!}
                     </div>                    
                 </div>
@@ -82,7 +82,7 @@
                 <div class="form-group {{ $errors->has('color') ? 'has-error':''}}">
                     <label for="color" class="col-sm-3 control-label">Color</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" name="color" id="color" value="{{ $pet->color }}">
+                        <input type="text" class="form-control" name="color" id="color" value="{{ $pet->color }}" required>
                         {!! $errors->first('color','<span class="help-block">:message</span>') !!}
                     </div>
                 </div>

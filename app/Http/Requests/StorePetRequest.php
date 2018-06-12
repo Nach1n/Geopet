@@ -32,7 +32,7 @@ class StorePetRequest extends FormRequest
             'sex' => 'required|boolean',
             'color' => 'string',
             'reproductive_status' => 'boolean',
-            'description' => 'string|max:600',
+            'description' => 'nullable|string|max:600',
         ];
     }
 }

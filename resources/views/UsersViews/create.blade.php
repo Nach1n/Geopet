@@ -105,7 +105,7 @@
         </div>
     </div>
 </div>
-
+<!--
 <div class="box box-warning">
     <div class="box-header with-border">
         <h3 class="box-title">Plan</h3>
@@ -131,6 +131,7 @@
         </div>
     </div>
 </div>
+-->
 <button type="submit" class="btn btn-primary pull-right">Agregar</button>
 </form>
 @endsection

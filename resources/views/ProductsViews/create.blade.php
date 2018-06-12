@@ -27,7 +27,7 @@
             <div class="form-group {{ $errors->has('brand_name') ? 'has-error':''}}">
                 <label for="brand_name" class="col-sm-3 control-label">Marca (*)</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="brand_name" id="brand_name" value="{{ old('brand_name }}" placeholder="Marca" required>
+                    <input type="text" class="form-control" name="brand_name" id="brand_name" value="{{ old('brand_name') }}" placeholder="Marca" required>
                     {!! $errors->first('brand_name','<span class="help-block">:message</span>') !!}
                 </div>    
             </div>
@@ -43,7 +43,7 @@
             <div class="form-group {{ $errors->has('network') ? 'has-error':''}}">
                 <label for="network" class="col-sm-3 control-label">Red</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="network" id="network" value="{{ old('network') }}" placeholder="Red">
+                    <input type="text" class="form-control" name="network" id="network" value="{{ old('network') }}" placeholder="GPRS/GPS">
                     {!! $errors->first('network','<span class="help-block">:message</span>') !!}
                 </div>                   
             </div>
@@ -51,7 +51,7 @@
             <div class="form-group {{ $errors->has('band') ? 'has-error':''}}">
                 <label for="band" class="col-sm-3 control-label">Frecuencia (*)</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="band" id="band" value="{{ old('band') }}" placeholder="Frecuencia" required>
+                    <input type="text" class="form-control" name="band" id="band" value="{{ old('band') }}" placeholder="850/900/1800/1900Mhz" required>
                     {!! $errors->first('band','<span class="help-block">:message</span>') !!}
                 </div>
             </div>
@@ -59,7 +59,7 @@
             <div class="form-group {{ $errors->has('comunication_protocol') ? 'has-error':''}}">
                 <label for="comunication_protocol" class="col-sm-3 control-label">Protocolo de comunicación (*)</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="comunication_protocol" id="comunication_protocol" value="{{ old('comunication_protocol') }}" placeholder="Protocolo de comunicación" required>
+                    <input type="text" class="form-control" name="comunication_protocol" id="comunication_protocol" value="{{ old('comunication_protocol') }}" placeholder="TCP" required>
                     {!! $errors->first('comunication_protocol','<span class="help-block">:message</span>') !!}
                 </div>
             </div>
@@ -67,7 +67,7 @@
             <div class="form-group {{ $errors->has('gps_chip') ? 'has-error':''}}">
                 <label for="gps_chip" class="col-sm-3 control-label">Chip GPS</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="gps_chip" id="gps_chip" value="{{ old('gps_chip') }}" placeholder="Chip GPS">
+                    <input type="text" class="form-control" name="gps_chip" id="gps_chip" value="{{ old('gps_chip') }}" placeholder="SRIF 3">
                     {!! $errors->first('gps_chip','<span class="help-block">:message</span>') !!}
                 </div>
             </div>
@@ -75,7 +75,7 @@
             <div class="form-group {{ $errors->has('gps_accuracy') ? 'has-error':''}}">
                 <label for="gps_accuracy" class="col-sm-3 control-label">Precisión GPS (*)</label>
                 <div class="col-sm-8">
-                    <input type="number" class="form-control" name="gps_accuracy" id="gps_accuracy" value="{{ old('gps_accuracy') }}" placeholder="Precisión GPS" required>
+                    <input type="number" class="form-control" name="gps_accuracy" id="gps_accuracy" value="{{ old('gps_accuracy') }}" placeholder="5" required>
                     <span class="help-block">Precisión expresada en metros.</span>
                     {!! $errors->first('gps_accuracy','<span class="help-block">:message</span>') !!}
                 </div>
@@ -84,7 +84,7 @@
             <div class="form-group {{ $errors->has('car_charger') ? 'has-error':''}}">
                 <label for="car_charger" class="col-sm-3 control-label">Cargador de vehículo</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="car_charger" id="car_charger" value="{{ old('car_charger') }}" placeholder="Cargador de vehículo">
+                    <input type="text" class="form-control" name="car_charger" id="car_charger" value="{{ old('car_charger') }}" placeholder="12—24V input 5V output">
                     {!! $errors->first('car_charger','<span class="help-block">:message</span>') !!}
                 </div>
             </div>
@@ -92,7 +92,7 @@
             <div class="form-group {{ $errors->has('wall_charger') ? 'has-error':''}}">
                 <label for="wall_charger" class="col-sm-3 control-label">Cargador de pared</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="wall_charger" id="wall_charger" value="{{ old('wall_charger') }}" placeholder="Cargador de pared">
+                    <input type="text" class="form-control" name="wall_charger" id="wall_charger" value="{{ old('wall_charger') }}" placeholder="110-220V input 5V output">
                     {!! $errors->first('wall_charger','<span class="help-block">:message</span>') !!}
                 </div>
             </div>
@@ -100,7 +100,7 @@
             <div class="form-group {{ $errors->has('battery') ? 'has-error':''}}">
                 <label for="battery" class="col-sm-3 control-label">Capacidad de la batería (*)</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="battery" id="battery" value="{{ old('battery') }}" placeholder="Batería" required>
+                    <input type="text" class="form-control" name="battery" id="battery" value="{{ old('battery') }}" placeholder="3.7V 700-850mAh Li-ion battery" required>
                     {!! $errors->first('battery','<span class="help-block">:message</span>') !!}
                 </div> 
             </div>
@@ -108,7 +108,7 @@
             <div class="form-group {{ $errors->has('battery_life') ? 'has-error':''}}">
                 <label for="battery_life" class="col-sm-3 control-label">Duración de la batería (*)</label>
                 <div class="col-sm-8">
-                    <input type="number" class="form-control" name="battery_life" id="battery_life" value="{{ old('battery_life') }}" placeholder="Duración de la batería uso continuo" required>
+                    <input type="number" class="form-control" name="battery_life" id="battery_life" value="{{ old('battery_life') }}" placeholder="30" required>
                     <span class="help-block">Cantidad de horas de uso continuo.</span>
                     {!! $errors->first('battery_life','<span class="help-block">:message</span>') !!}
                 </div>
@@ -117,7 +117,8 @@
             <div class="form-group {{ $errors->has('standby') ? 'has-error':''}}">
                 <label for="standby" class="col-sm-3 control-label">Standby (*)</label>
                 <div class="col-sm-8">
-                    <input type="number" class="form-control" name="standby" id="standby" value="{{ old('standby') }}" placeholder="Duración de la batería en modo reposo" required>
+                    <input type="number" class="form-control" name="standby" id="standby" value="{{ old('standby') }}" placeholder="300" required>
+                    <span class="help-block">Cantidad de horas en modo de espera.</span>
                     {!! $errors->first('standby','<span class="help-block">:message</span>') !!}
                 </div>
             </div>
@@ -125,7 +126,7 @@
             <div class="form-group {{ $errors->has('cpu') ? 'has-error':''}}">
                 <label for="cpu" class="col-sm-3 control-label">CPU</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="cpu" id="cpu" value="{{ old('cpu') }}" placeholder="CPU">
+                    <input type="text" class="form-control" name="cpu" id="cpu" value="{{ old('cpu') }}" placeholder="SRIF 3">
                     {!! $errors->first('cpu','<span class="help-block">:message</span>') !!}
                 </div>
             </div>
@@ -133,7 +134,7 @@
             <div class="form-group {{ $errors->has('certificate') ? 'has-error':''}}">
                 <label for="certificate" class="col-sm-3 control-label">Certificado</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="certificate" id="certificate" value="{{ old('certificate') }}" placeholder="Certificado">
+                    <input type="text" class="form-control" name="certificate" id="certificate" value="{{ old('certificate') }}" placeholder="CE Certificate">
                     {!! $errors->first('certificate','<span class="help-block">:message</span>') !!}
                 </div>
             </div>
@@ -141,7 +142,7 @@
             <div class="form-group {{ $errors->has('item_size') ? 'has-error':''}}">
                 <label for="item_size" class="col-sm-3 control-label">Dimensiones (*)</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="item_size" id="item_size" value="{{ old('item_size') }}" placeholder="Dimensiones" required>
+                    <input type="text" class="form-control" name="item_size" id="item_size" value="{{ old('item_size') }}" placeholder="47mmx50mmx15mm" required>
                     {!! $errors->first('item_size','<span class="help-block">:message</span>') !!}
                 </div>
             </div>
@@ -149,7 +150,7 @@
             <div class="form-group {{ $errors->has('wight') ? 'has-error':''}}">
                 <label for="wight" class="col-sm-3 control-label">Peso (*)</label>
                 <div class="col-sm-8">
-                    <input type="number" class="form-control" name="wight" id="wight" value="{{ old('wight') }}" placeholder="Peso" required>
+                    <input type="number" class="form-control" name="wight" id="wight" value="{{ old('wight') }}" placeholder="44" required>
                     <span class="help-block">Peso expresado en gramos.</span>
                     {!! $errors->first('wight','<span class="help-block">:message</span>') !!}
                 </div>
@@ -158,7 +159,7 @@
             <div class="form-group {{ $errors->has('gps_module') ? 'has-error':''}}">
                 <label for="gps_module" class="col-sm-3 control-label">Modulo GPS</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" name="gps_module" id="gps_module" value="{{ old('gps_module') }}" placeholder="Modulo GPS">
+                    <input type="text" class="form-control" name="gps_module" id="gps_module" value="{{ old('gps_module') }}" placeholder="MTK">
                     {!! $errors->first('gps_module','<span class="help-block">:message</span>') !!}
                 </div>
             </div>
@@ -166,7 +167,7 @@
             <div class="form-group {{ $errors->has('operation_temp') ? 'has-error':''}}">
                 <label for="operation_temp" class="col-sm-3 control-label">Temperatura de Operación</label>
                 <div class="col-sm-8">
-                    <input type="operation_temp" class="form-control" name="operation_temp" id="operation_temp" value="{{ old('operation_temp') }}" placeholder="Temperatura de operación">
+                    <input type="operation_temp" class="form-control" name="operation_temp" id="operation_temp" value="{{ old('operation_temp') }}" placeholder="-20°C to +55°C">
                     {!! $errors->first('operation_temp','<span class="help-block">:message</span>') !!}
                 </div>
             </div>
@@ -174,7 +175,7 @@
             <div class="form-group {{ $errors->has('price') ? 'has-error':''}}">
                 <label for="price" class="col-sm-3 control-label">Precio (*)</label>
                 <div class="col-sm-8">
-                    <input type="number" class="form-control" name="price" id="price" value="{{ old('price') }}" placeholder="Precio" required>
+                    <input type="number" class="form-control" name="price" id="price" value="{{ old('price') }}" placeholder="49900" required>
                     {!! $errors->first('price','<span class="help-block">:message</span>') !!}
                 </div>
             </div>                    

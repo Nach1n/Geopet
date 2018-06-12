@@ -26,8 +26,8 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                    <th scope="col">Título</th>
-                    <th scope="col">Descripción</th>
+                    <th scope="col">Pregunta</th>
+                    <th scope="col">Respuesta</th>
                     <th scope="col">Estado</th>
                     <th scope="col">Acción</th>
                     </tr>

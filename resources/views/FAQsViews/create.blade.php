@@ -12,7 +12,7 @@
             {!! csrf_field() !!}
             <br>
             <div class="form-group {{ $errors->has('title') ? 'has-error':''}}">
-                <label for="title" class="col-sm-2 control-label">Título</label>
+                <label for="title" class="col-sm-2 control-label">Pregunta</label>
                 <div class="col-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><li class="fa fa-user" style="width:14px"></li></span>
@@ -23,7 +23,7 @@
             </div>
 
             <div class="form-group {{ $errors->has('description') ? 'has-error':''}}">
-                <label for="description" class="col-sm-2 control-label">Apellido</label>
+                <label for="description" class="col-sm-2 control-label">Respuesta</label>
                 <div class="col-sm-10">
                     <div class="input-group">
                         <span class="input-group-addon"><li class="fa fa-commenting" style="width:14px"></li></span>
