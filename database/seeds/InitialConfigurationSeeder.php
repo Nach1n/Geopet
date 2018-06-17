@@ -36,6 +36,7 @@ class InitialConfigurationSeeder extends Seeder
 
         User::create([
             'name' => 'Byron',
+            'telegram_user' => 'ByronOyarzun',
             'lastname' => 'Oyarzún',
             'email' => 'byron@unab.cl',
             'phone_number' => '56945896532',

@@ -26,6 +26,7 @@ class StoreUserRequest extends FormRequest
         return [
             'name' => 'required',
             'lastname' => 'required',
+            'telegram_user' => 'nullable|string',
             'email' => 'required|email|unique:users,email,'.$this->route('user'),
             'phone-number' => 'required|numeric|min:11',
             'rol' => 'required|digits:1,2',

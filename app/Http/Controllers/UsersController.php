@@ -54,6 +54,7 @@ class UsersController extends Controller
         $user = new User();
         $user->name = $request->input('name');
         $user->lastname = $request->input('lastname');
+        $user->telegram_user = $request->input('telegram_user');
         $user->email = $request->input('email');
         $user->phone_number = $request->input('phone-number');
         $user->password = bcrypt($request->input('password'));
@@ -121,6 +122,7 @@ class UsersController extends Controller
             $user->avatar = $request->file('avatar')->store('public/avatar');
         }
         
+        $user->telegram_user = $request->input('telegram_user');
         $user->email = $request->input('email');
         $user->phone_number = $request->input('phone-number');
         if($request->filled('password') && $request->filled('password_confirmation'))

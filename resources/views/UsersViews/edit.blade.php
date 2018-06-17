@@ -36,6 +36,17 @@
                     </div>
                 </div>
 
+                <div class="form-group {{ $errors->has('telegram_user') ? 'has-error':''}}">
+                    <label for="telegram_user" class="col-sm-2 control-label">Usuario telegram</label>
+                    <div class="col-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><li class="fa fa-send-o"></li></span>
+                            <input type="text" class="form-control" name="telegram_user" id="telegram_user" value="{{ $user->telegram_user }}">
+                        </div>
+                        {!! $errors->first('telegram_user','<span class="help-block">:message</span>') !!}
+                    </div>                    
+                </div>
+
                 <div class="form-group {{ $errors->has('email') ? 'has-error':''}}">
                     <label for="email" class="col-sm-2 control-label">E-mail</label>
                     <div class="col-sm-10">

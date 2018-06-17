@@ -82,3 +82,8 @@ Utiliza el template [AdminLTE](https://github.com/almasaeed2010/AdminLTE)
 - Reducción de la calidad de las imagenes.
 - Correción de errores menores.
 - Migración pet **(incompleto)**.
+
+## 0.7.3 - 17-06-2018
+
+**Agregado**
+- Se modifica la migracion correspondiente al user, para agregar la columna telegram_user.
