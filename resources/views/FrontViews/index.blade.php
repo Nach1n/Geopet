@@ -242,7 +242,6 @@
 
         <header class="section-header wow fadeInUp">
           <h3>Preguntas Frecuentes</h3>
-          <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus, ad pro quaestio laboramus. Ei ubique vivendum pro. At ius nisl accusam lorenta zanos paradigno tridexa panatarel.</p>
         </header>
 
         <div class="row">
@@ -291,6 +290,14 @@
               <i class="ion-ios-email-outline"></i>
               <h3>Email</h3>
               <p><a href="mailto:{{$app_option->app_email}}">{{$app_option->app_email}}</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4 mx-auto">
+            <div class="contact-email">
+              <img src="img/telegram.png" alt="" class="img-fluid">
+              <h3>Bot Telegram</h3>
+              <p><a href="#">Geopet_Bot</a></p>
             </div>
           </div>
 

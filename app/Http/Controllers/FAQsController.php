@@ -44,7 +44,7 @@ class FAQsController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|string|max:120',
-            'description' => 'required|string|max:120',
+            'description' => 'required|string',
             'published' => 'required|boolean'
         ]);
         
@@ -91,7 +91,7 @@ class FAQsController extends Controller
     {
         $this->validate($request, [
             'title' => 'required|string|max:120',
-            'description' => 'required|string|max:120',
+            'description' => 'required|string',
             'published' => 'required|boolean' 
         ]);
 

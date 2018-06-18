@@ -85,5 +85,14 @@ Utiliza el template [AdminLTE](https://github.com/almasaeed2010/AdminLTE)
 
 ## 0.7.3 - 17-06-2018
 
+**Modificado**
+- Se modifica la migración correspondiente al user, para agregar la columna telegram_user.
+
+## 0.7.4 - 17-06-2018
+
 **Agregado**
-- Se modifica la migracion correspondiente al user, para agregar la columna telegram_user.
+- Se agrega el campo **Usuario telegram**, en la vista UsersView.acount.
+
+**Modificado**
+- Se modifico la migración FAQ, aumenta la cantidad de caracteres en la descripción.
+- Se modifica el FrontViews.index, agrega el nombre del bot de telegram.

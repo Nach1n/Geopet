@@ -24,6 +24,16 @@
             </div>
 
             <div class="form-group">
+                <label for="telegram" class="col-sm-2 control-label">Usuario telegram</label>
+                <div class="col-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-send-o"></i></span>
+                        <input type="text" class="form-control" id="telegram" value="{{ $user->telegram_user }}" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label for="password" class="col-sm-2 control-label">Contraseña</label>
                 <div class="col-sm-10">
                     <div class="input-group">
@@ -58,7 +68,7 @@
             <div class="form-group">
                 <label for="plan" class="col-sm-2 control-label">Plan</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="plan" value="Plan Shaper Ilimitado" disabled>
+                    <input type="text" class="form-control" id="plan" value="Plan Ilimitado" disabled>
                 </div>
             </div>
         </form>
