@@ -41,7 +41,7 @@ class HomeController extends Controller
 
             $lastUsers = User::select('id','name', 'avatar')->whereHas('role', function($query){
                 $query->where('name', 'client');
-            })->orderBy('id','desc')->take(10)->get();
+            })->orderBy('id','desc')->take(8)->get();
 
             $numberPets = Pet::count();
 

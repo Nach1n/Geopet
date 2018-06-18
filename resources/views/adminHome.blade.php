@@ -3,6 +3,8 @@
 
 @section('js')
 <script src="{{ asset('bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+<script src="{{ asset('bower_components/chart.js/Chart.js') }}"></script>
+<script src="{{ asset('bower_components/admin-lte/dist/js/pages/dashboard2.js') }}"></script>
 <script>
     $('#chat-box').slimScroll({
     height: '250px'
@@ -95,6 +97,40 @@ $(document).ready(function(){
 </div>
     <!-- /.row -->
 <div class="row">
+<div class="col-md-12">
+        <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Registro de clientes y mascotas</h3>
+
+            <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="row">
+            <div class="col-md-12">
+                <div class="text-center">
+                    <div style="display:inline-block">
+                        <div style="background-color:#d2d6de; height:20px; width:20px; display:inline-block"></div> Mascotas
+                        <div style="background-color:#4b94c0; height:20px; width:20px; display:inline-block"></div> Clientes
+                    </div>
+                </div>
+
+                <div class="chart">
+                <!-- Sales Chart Canvas -->
+                <canvas id="salesChart" style="height: 180px;"></canvas>
+                </div>
+                <!-- /.chart-responsive -->
+            </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- ./box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+
     <div class="col-md-7">
         <!-- Chat box -->
         <div class="box box-success">
@@ -197,5 +233,6 @@ $(document).ready(function(){
         </div>
         <!--/.box -->
     </div>
+    
 </div>
 @stop

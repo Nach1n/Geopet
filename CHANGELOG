@@ -96,3 +96,8 @@ Utiliza el template [AdminLTE](https://github.com/almasaeed2010/AdminLTE)
 **Modificado**
 - Se modifico la migración FAQ, aumenta la cantidad de caracteres en la descripción.
 - Se modifica el FrontViews.index, agrega el nombre del bot de telegram.
+
+## 0.7.5 - 18-06-2018
+
+**Agregado**
+- Datos de ejemplo al InitialConfigurationSeeder.
